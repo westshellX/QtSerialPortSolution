@@ -162,7 +162,8 @@ Dialog::Dialog(QWidget *parent) :
 
     // 标准波特率
     QComboBox* comboBaudRate = ui->comboBaudRate;
-    QList<qint32>& baudRates = QSerialPortInfo::standardBaudRates();
+
+    QList<qint32> baudRates = QSerialPortInfo::standardBaudRates();
 
     qSort(baudRates.begin(),baudRates.end(),compareBaudRateData );
     qint32 selectedIndex = -1;
