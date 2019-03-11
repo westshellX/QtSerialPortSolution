@@ -42,15 +42,14 @@ void SerialPortAssistant::initSerialPortSetting(void)
         ui->serialPortSwitch->setEnabled(false);
     }
 
-    /* Insert choices of baud rate into QComboBox. Keep this->baudRate and baudRate in same order. */
-    this->baudRate << QSerialPort::Baud115200 << QSerialPort::Baud57600 << QSerialPort::Baud38400
-                   << QSerialPort::Baud19200 << QSerialPort::Baud9600 << QSerialPort::Baud4800
-                   << QSerialPort::Baud2400 << QSerialPort::Baud1200;
-    QStringList baudRate;
-    baudRate << tr("115200") << tr("57600") << tr("38400")
-             << tr("19200") << tr("9600") << tr("4800")
-             << tr("2400") << tr("1200");
-    ui->baudRate->addItems(baudRate);
+    QList<qint32> baudRateTemp = QSerialPortInfo::standardBaudRates();
+    for(int index = 0; index < baudRateTemp.count(); index++)
+    {
+
+        ui->baudRate->addItem(QString::number(baudRateTemp.at(index)));
+        if(baudRateTemp.at(index)==QSerialPort::Baud9600)
+            ui->baudRate->setCurrentIndex(index);
+    }
 
     /* Insert choices of data bits into QComboBox. Keep this->dataBits and dataBits in same order. */
     this->dataBits << QSerialPort::Data8 << QSerialPort::Data7
@@ -275,7 +274,10 @@ void SerialPortAssistant::transmitHexadecimal(void)
 {
     /* Check if the data is splited by withspace every 2 characters. */
     QString data = ui->dataToSend->toPlainText();
-    QRegExp regExp(" *([0-9A-Fa-f]{2} +)+[0-9A-Fa-f]{2} *");
+    QRegExp regExp(" *([0-9A-Fa-f]{2}+)+[0-9A-Fa-f]{2}*");
+//    QRegExp regExp("*[0-9A-Fa-f]");
+    qDebug()<<data<<endl;
+    qDebug()<<regExp<<endl;
     if(regExp.exactMatch(data))
     {
         /* Convert every 2 characters to hexadecimal. */
