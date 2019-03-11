@@ -19,7 +19,7 @@
      <x>10</x>
      <y>10</y>
      <width>211</width>
-     <height>381</height>
+     <height>411</height>
     </rect>
    </property>
    <property name="title">
@@ -143,7 +143,7 @@
      <x>230</x>
      <y>270</y>
      <width>461</width>
-     <height>131</height>
+     <height>151</height>
     </rect>
    </property>
    <property name="title">
@@ -186,10 +186,10 @@
   <widget class="QPushButton" name="pushButtonTxData">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>410</y>
+     <x>590</x>
+     <y>430</y>
      <width>101</width>
-     <height>51</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">

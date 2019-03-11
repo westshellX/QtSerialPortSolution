@@ -171,7 +171,7 @@ Dialog::Dialog(QWidget *parent) :
     foreach( qint32 baudRate ,baudRates )
     {
         comboBaudRate->addItem(QString::number(baudRate,10));
-        if ( baudRate == QSerialPort::Baud115200 )
+        if ( baudRate == QSerialPort::Baud9600 )
         {
             selectedIndex=nIndex;
         }
@@ -240,8 +240,8 @@ void Dialog::enableUI(bool enable )
 {
     ui->comboSerial->setEnabled(enable);
     ui->comboBaudRate->setEnabled(enable);
-    ui->checkBoxInputData->setEnabled(enable);
-    ui->checkBoxOutputData->setEnabled(enable);
+//    ui->checkBoxInputData->setEnabled(enable);
+//    ui->checkBoxOutputData->setEnabled(enable);
     ui->pushButtonTxData->setEnabled(!enable);
 }
 
