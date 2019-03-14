@@ -4,4 +4,5 @@ SUBDIRS += \
     HelloWorld \
     SerialportAssistant \
     SerialPortAssistant_lora-mesh \
-    SerialPortAssistant-hubenchang0515
+    SerialPortAssistant-hubenchang0515 \
+    Fish
