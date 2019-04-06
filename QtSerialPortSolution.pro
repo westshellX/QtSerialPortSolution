@@ -5,4 +5,5 @@ SUBDIRS += \
     SerialportAssistant \
     SerialPortAssistant_lora-mesh \
     SerialPortAssistant-hubenchang0515 \
-    Fish
+    Fish \
+    TCPClient
