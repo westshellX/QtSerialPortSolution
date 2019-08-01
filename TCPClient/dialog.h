@@ -18,16 +18,22 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
 
+    void tryConnect();
+
 private slots:
     void on_connectButton_clicked();
     void readStrGet();
     void displayError(QAbstractSocket::SocketError socketError);
 
+    void on_checkBox_stateChanged(int arg1);
+
+    void connectToServer();
+
 private:
 
     QTcpSocket *tcpSocket = nullptr;
     QDataStream in;
-
+    bool isAutoConnect;     //是否自动连接
     Ui::Dialog *ui;
 };
 

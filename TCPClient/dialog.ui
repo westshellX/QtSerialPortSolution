@@ -120,6 +120,9 @@
      <height>121</height>
     </rect>
    </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
   </widget>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">

@@ -7,12 +7,10 @@
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     tcpSocket(new QTcpSocket(this)),
+    isAutoConnect(false),
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-
-    in.setDevice(tcpSocket);
-    in.setVersion(QDataStream::Qt_4_0);
 
     // find out name of this machine
     QString name = QHostInfo::localHostName();
@@ -43,6 +41,9 @@ Dialog::Dialog(QWidget *parent) :
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error),
 //! [3]
             this, &Dialog::displayError);
+    connect(tcpSocket,&QAbstractSocket::disconnected,this,&Dialog::tryConnect);
+    in.setDevice(tcpSocket);
+    in.setVersion(QDataStream::Qt_5_13);
 }
 
 Dialog::~Dialog()
@@ -51,6 +52,15 @@ Dialog::~Dialog()
 }
 
 void Dialog::on_connectButton_clicked()
+{
+    connectToServer();
+}
+void Dialog::tryConnect()
+{
+    if(isAutoConnect)
+        connectToServer();
+}
+void Dialog::connectToServer()
 {
     if(ui->lineEditPort->text().isEmpty() || ui->comboBoxIp->currentText().isEmpty())
     {
@@ -66,16 +76,28 @@ void Dialog::readStrGet()
 
 //    QString nextFortune;
 //    in >> nextFortune;
-//    qDebug()<<in<<endl;
+
 //    if (!in.commitTransaction())
 //        return;
+
+//    qDebug()<<in<<endl;
+//    qDebug()<<nextFortune<<endl;
+//    ui->textEdit_receive->append(nextFortune);
 
     QByteArray buffer=tcpSocket->readAll();
     if(!buffer.isEmpty())
     {
+        qDebug()<<"Begin-----------------------------------"<<endl;
         qDebug()<<buffer<<endl;
-        ui->textEdit_receive->append(buffer);
+        qDebug()<<"End*************************************"<<endl;
+        ui->textEdit_receive->append(QString("%1").arg(buffer.length()));
     }
+//    char tmp[256];
+//    if(tcpSocket->read(tmp,256)!=-1)
+//    {
+//        qDebug()<<tmp<<endl;
+//        ui->textEdit_receive->append(tmp);
+//    }
 }
 void Dialog::displayError(QAbstractSocket::SocketError socketError)
 {
@@ -99,4 +121,21 @@ void Dialog::displayError(QAbstractSocket::SocketError socketError)
                                  tr("The following error occurred: %1.")
                                  .arg(tcpSocket->errorString()));
     }
+}
+
+void Dialog::on_checkBox_stateChanged(int arg1)
+{
+    if(ui->checkBox->isChecked())
+    {
+        qDebug()<<"Checked, and connect automatically"<<endl;
+        isAutoConnect=true;
+    }
+    else
+    {
+        qDebug()<<"Unchecked, and not connect automatically!"<<endl;
+        isAutoConnect=false;
+    }
+
+    //尝试重新连接
+    tryConnect();
 }
