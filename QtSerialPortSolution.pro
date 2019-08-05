@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    HelloWorld \
-    Fish \
-    TCPClient
+    SerialportAssistant \
+    SerialPortAssistant_lora-mesh \
+    SerialPortAssistant-hubenchang0515
