@@ -62,8 +62,8 @@ void SerialPortAssistant::initSerialPortSetting(void)
     this->parity << QSerialPort::NoParity << QSerialPort::OddParity << QSerialPort::EvenParity
                  << QSerialPort::SpaceParity << QSerialPort::MarkParity;
     QStringList parity;
-    parity << tr("无校验") << tr("奇校验") << tr("偶校验")
-           << tr("空校验") << tr("标记校验");
+    parity << tr("无校验位") << tr("奇校验位") << tr("偶校验位")
+           << tr("空校验位") << tr("标记校验");
     ui->parity->addItems(parity);
 
     /* Insert choices of stop bits into QComboBox. Keep this->stopBits and stopBits in same order. */

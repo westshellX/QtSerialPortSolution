@@ -1,6 +1,7 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    SerialportAssistant \
+    SerialPortAssistant-hubenchang0515 \
     SerialPortAssistant_lora-mesh \
-    SerialPortAssistant-hubenchang0515
+    NetAssistant \
+    SerialportAssistant

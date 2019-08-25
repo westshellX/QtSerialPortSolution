@@ -56,7 +56,7 @@ SerialportPanel::SerialportPanel(QSerialPort *serialport, QWidget *parent):QGrou
      * 如果没有可用串口，则显示"未检测到可用设备"
      * 否则，将可用设备添加至串口预选框中
      */
-    QLabel *pSerialportLabel = new QLabel(tr("串行口"));
+    QLabel *pSerialportLabel = new QLabel(tr("串行口 "));
     m_pSerialportComboBox = new QComboBox;
     QList<QSerialPortInfo> serialPortInfosTemp = QSerialPortInfo::availablePorts();
 
@@ -90,7 +90,7 @@ SerialportPanel::SerialportPanel(QSerialPort *serialport, QWidget *parent):QGrou
     /*
      * 波特率预选框初始化
      */
-    QLabel *pBaudRateLabel = new QLabel(tr("波特率"));
+    QLabel *pBaudRateLabel = new QLabel(tr("波特率 "));
     m_pBaudRateComboBox = new QComboBox;
     QList<qint32> baudRateTemp = QSerialPortInfo::standardBaudRates();
     for(int index = 0; index < baudRateTemp.count(); index++)
@@ -118,7 +118,7 @@ SerialportPanel::SerialportPanel(QSerialPort *serialport, QWidget *parent):QGrou
     /*
      *数据位、停止位、奇偶校验位
      */
-    QLabel *pDataBitsLabel = new QLabel(tr("数据位"));
+    QLabel *pDataBitsLabel = new QLabel(tr("数据位 "));
     m_pDataBitsComboBox = new QComboBox;
     m_pDataBitsComboBox->clear();
     m_pDataBitsComboBox->addItem("5");
@@ -127,14 +127,14 @@ SerialportPanel::SerialportPanel(QSerialPort *serialport, QWidget *parent):QGrou
     m_pDataBitsComboBox->addItem("8");
     m_pDataBitsComboBox->setCurrentText("8");
 
-    QLabel *pStopBitsLabel = new QLabel(tr("停止位"));
+    QLabel *pStopBitsLabel = new QLabel(tr("停止位 "));
     m_pStopBitsComboBox = new QComboBox;
     m_pStopBitsComboBox->clear();
     m_pStopBitsComboBox->addItem("1");
     m_pStopBitsComboBox->addItem("1.5");
     m_pStopBitsComboBox->addItem("2");
 
-    QLabel *pParityLabel = new QLabel(tr("%1奇偶校验位").arg(' '));
+    QLabel *pParityLabel = new QLabel(tr("%1奇偶校验位 ").arg(' '));
     m_pParityComboBox = new QComboBox;
     m_pParityComboBox->clear();
     m_pParityComboBox->addItem(tr("None"));

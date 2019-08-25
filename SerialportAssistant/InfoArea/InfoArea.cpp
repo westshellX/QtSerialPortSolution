@@ -54,7 +54,7 @@ InfoArea::InfoArea(QWidget *parent):QGroupBox(parent)
     m_pShowTimeCBox = new QCheckBox(tr("显示时间"));
     m_pShowTimeCBox->setChecked(false);
 
-    m_pCountByteCBox = new QCheckBox(tr("统计字节数"));
+    m_pCountByteCBox = new QCheckBox(tr("统计字节数 "));
     m_pCountByteCBox->setChecked(false);
 
     m_pHexCBox = new QCheckBox(tr("十六进制"));
@@ -62,17 +62,17 @@ InfoArea::InfoArea(QWidget *parent):QGroupBox(parent)
     connect(m_pHexCBox, SIGNAL(clicked(bool)),
             this, SLOT(HexCBoxClicked()));
 
-    m_pDecCBox = new QCheckBox(tr("十进制"));
+    m_pDecCBox = new QCheckBox(tr("十进制 "));
     m_pDecCBox->setChecked(false);
     connect(m_pDecCBox, SIGNAL(clicked(bool)),
             this, SLOT(DecCBoxClicked()));
 
-    m_pOctCBox = new QCheckBox(tr("八进制"));
+    m_pOctCBox = new QCheckBox(tr("八进制 "));
     m_pOctCBox->setChecked(false);
     connect(m_pOctCBox, SIGNAL(clicked(bool)),
             this, SLOT(OctCBoxClicked()));
 
-    m_pBinCBox = new QCheckBox(tr("二进制"));
+    m_pBinCBox = new QCheckBox(tr("二进制 "));
     m_pBinCBox->setChecked(false);
     connect(m_pBinCBox, SIGNAL(clicked(bool)),
             this, SLOT(BinCBoxClicked()));
@@ -96,7 +96,7 @@ InfoArea::InfoArea(QWidget *parent):QGroupBox(parent)
     pGridLayout->addWidget(m_pClearInfoPBt, 1, 8, 1, 1);
     pGridLayout->addWidget(m_pCountByteCBox, 2, 0, 1, 1);
 
-    this->setTitle(tr("信息显示区"));
+    this->setTitle(tr("信息显示区 "));
     this->setLayout(pGridLayout);
 }
 

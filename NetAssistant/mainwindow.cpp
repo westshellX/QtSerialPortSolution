@@ -62,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // 计数器清零 button
     clearCounterButton = new QPushButton();
     ui->statusBar->addWidget(clearCounterButton);
-    clearCounterButton->setText(tr("计数器清零"));
+    clearCounterButton->setText(tr("计数器清零吧"));
     connect(clearCounterButton, SIGNAL(released()), this, SLOT(on_clearCounter_pushButton_released()));
 
     // 时间 TODO:要进行更新
@@ -98,7 +98,7 @@ void MainWindow::connectNet()
     // No.1
     isConnect = true;
     // 将状态设置为 通
-    ui->state_label->setText("通");
+    ui->state_label->setText("通 ");
     QPalette pa;
     pa.setColor(QPalette::WindowText,Qt::blue);
     ui->state_label->setPalette(pa);
@@ -168,7 +168,7 @@ void MainWindow::init()
     // No.1
     isConnect = false;
     // 将状态设置为 断
-    ui->state_label->setText("断");
+    ui->state_label->setText("断 ");
     QPalette pa;
     pa.setColor(QPalette::WindowText,Qt::red);
     ui->state_label->setPalette(pa);
@@ -185,7 +185,7 @@ void MainWindow::init()
     //
     client.udpStop(NULL, NULL, NULL);
 
-    updateStateBar("本地IP: " + chelper.getLocalHostIP().toString() + " 无连接",
+    updateStateBar("本地IP:" + chelper.getLocalHostIP().toString() + "无连接 ",
                    QVariant(QVariant::Int), QVariant(QVariant::Int));
 }
 
@@ -199,7 +199,7 @@ void MainWindow::disConnectNet()
     // No.1
     isConnect = false;
     // 将状态设置为 断
-    ui->state_label->setText("断");
+    ui->state_label->setText("断 ");
     QPalette pa;
     pa.setColor(QPalette::WindowText,Qt::red);
     ui->state_label->setPalette(pa);

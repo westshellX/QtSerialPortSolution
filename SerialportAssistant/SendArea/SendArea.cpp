@@ -56,21 +56,21 @@ SendArea::SendArea(QSerialPort *serialport, QWidget *parent):QGroupBox(parent)
     connect(m_pHexCBox, SIGNAL(clicked(bool)),
             this, SLOT(HexCBoxClicked()));
 
-    m_pSendFrameCBox = new QCheckBox(tr("帧　发送"));
+    m_pSendFrameCBox = new QCheckBox(tr("帧发送 "));
     m_pSendFrameCBox->setChecked(true);
     connect(m_pSendFrameCBox, SIGNAL(clicked(bool)),
             this, SLOT(SendFrameCBoxClicked()));
 
-    m_pSendByteCBox = new QCheckBox(tr("字节发送"));
+    m_pSendByteCBox = new QCheckBox(tr("字节发送 "));
     connect(m_pSendByteCBox, SIGNAL(clicked(bool)),
             this, SLOT(SendByteCBoxClicked()));
 
-    m_pSendCircularyCBox = new QCheckBox(tr("循环发送"));
+    m_pSendCircularyCBox = new QCheckBox(tr("循环发送 "));
     m_pSendCircularyCBox->setChecked(true);
     connect(m_pSendCircularyCBox, SIGNAL(clicked(bool)),
             this, SLOT(SendCircularyCBoxClicked()));
 
-    m_pSendDealyCBox = new QCheckBox(tr("延时发送"));
+    m_pSendDealyCBox = new QCheckBox(tr("延时发送 "));
     m_pSendDealyCBox->setChecked(true);
 
     m_pDelayTimeLab = new QLabel(tr("延时时间(ms)"));
@@ -91,7 +91,7 @@ SendArea::SendArea(QSerialPort *serialport, QWidget *parent):QGroupBox(parent)
     connect(m_pDataTEdit, SIGNAL(textChanged()),
             this, SLOT(SetTextFormat()));
 
-    m_pSendPBt = new QPushButton(tr("发送数据"));
+    m_pSendPBt = new QPushButton(tr("发送数据 "));
     connect(m_pSendPBt, SIGNAL(clicked(bool)),
             this, SLOT(SendPBtClicked()));
 

@@ -141,10 +141,10 @@ void InfoArea::ShowData(QByteArray *array, int flag)
         switch(flag)
         {
         case RECEIVE_DATA:
-            infoStrTemp = tr("本次共接收%1个字节。").arg(array->count());
+            infoStrTemp = tr("本次共接收%1个字节。 ").arg(array->count());
             break;
         case SEND_DATA:
-            infoStrTemp = tr("本次共发送%1个字节。").arg(array->count());
+            infoStrTemp = tr("本次共发送%1个字节。 ").arg(array->count());
             break;
         default:
             infoStrTemp = tr("<font color=red>未知错误，无法统计收发字节数！</font>");

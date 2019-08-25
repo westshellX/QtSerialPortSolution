@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,9 +21,4 @@ FORMS    += dialog.ui
 
 RC_FILE  += app.rc
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../Qt5.7.0/5.7/msvc2015_64/lib/ -lQt5SerialPort
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../Qt5.7.0/5.7/msvc2015_64/lib/ -lQt5SerialPortd
-else:unix: LIBS += -L$$PWD/../../../Qt5.7.0/5.7/msvc2015_64/lib/ -lQt5SerialPort
 
-INCLUDEPATH += $$PWD/../../../Qt5.7.0/5.7/msvc2015_64/include
-DEPENDPATH += $$PWD/../../../Qt5.7.0/5.7/msvc2015_64/include

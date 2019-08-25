@@ -139,7 +139,7 @@ void SerialportAssistant::CreateMenu()
     connect(m_pOpenAction, SIGNAL(triggered(bool)),
             this, SLOT(OpenFile()));
 
-    m_pExitAction = new QAction(tr("退出"));
+    m_pExitAction = new QAction(tr("退出 "));
     m_pFileMenu->addAction(m_pExitAction);
     connect(m_pExitAction, SIGNAL(triggered(bool)),
             this, SLOT(close()));    

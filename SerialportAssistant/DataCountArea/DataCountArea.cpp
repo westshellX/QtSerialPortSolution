@@ -60,18 +60,18 @@ DataCountArea::DataCountArea(QWidget *parent) : QGroupBox(parent)
     /*
      * 按钮初始化
      */
-    m_pResetReceiveCountPBt = new QPushButton(tr("重置收计数"));
-    m_pResetReceiveCountPBt->setToolTip(tr("重置收数据计数"));
+    m_pResetReceiveCountPBt = new QPushButton(tr("重置收计数 "));
+    m_pResetReceiveCountPBt->setToolTip(tr("重置收数据计数 "));
     connect(m_pResetReceiveCountPBt, SIGNAL(clicked(bool)),
             this, SLOT(ResetReceiveCountPBtClicked()));
 
-    m_pResetSendCountPBt = new QPushButton(tr("重置发计数"));
-    m_pResetSendCountPBt->setToolTip(tr("重置发数据计数"));
+    m_pResetSendCountPBt = new QPushButton(tr("重置发计数 "));
+    m_pResetSendCountPBt->setToolTip(tr("重置发数据计数 "));
     connect(m_pResetSendCountPBt, SIGNAL(clicked(bool)),
             this, SLOT(ResetSendCountPBtClicked()));
 
     m_pResetCountPBt = new QPushButton(tr("重置计数"));
-    m_pResetCountPBt->setToolTip(tr("重置收数据计数和发数据计数"));
+    m_pResetCountPBt->setToolTip(tr("重置收数据计数和发数据计数 "));
     connect(m_pResetCountPBt, SIGNAL(clicked(bool)),
             this, SLOT(ResetCountPBtClicked()));
 
@@ -90,7 +90,7 @@ DataCountArea::DataCountArea(QWidget *parent) : QGroupBox(parent)
     pThisLayout->addWidget(m_pResetCountPBt);
 
     this->setLayout(pThisLayout);
-    this->setTitle(tr("数据统计区"));
+    this->setTitle(tr("数据统计区 "));
 
     /*
      * "重置收计数"、"重置发计数"、"重置计数"这三个按钮被点击时，在其槽函数中会发射
